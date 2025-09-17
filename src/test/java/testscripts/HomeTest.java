@@ -2,6 +2,7 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
@@ -24,6 +25,8 @@ public class HomeTest extends Base
 		HomePage home=new HomePage(driver);
 		home.clickOnAdminprofile();
 		home.ClickonLogout();
+		boolean signinpresent=home.isDisplayedSignin();
+		Assert.assertTrue(signinpresent, "User can't logout from the application");
 		
 		
 	}

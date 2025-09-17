@@ -30,6 +30,17 @@ public class LoginPage
 		{
 			password.sendKeys(passwordValue);
 		}
+		//Assertion
+		@FindBy(xpath = "//p[text()='Dashboard']") private WebElement dashboard;
+		public boolean dashboardisDisplayed()
+		{
+			return dashboard.isDisplayed();//dashboard displayed or not there-isDisplayed
+		}
+		@FindBy(xpath = "//b[text()=\"7rmart supermarket\"]") private WebElement loginPageTitle;
+		public String getPageTitle()
+		{
+			return loginPageTitle.getText();
+		}
 		
 		@FindBy(xpath = "//button[@class='btn btn-dark btn-block']")private WebElement login;
 		

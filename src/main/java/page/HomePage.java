@@ -30,5 +30,11 @@ public class HomePage
 		{
 			logout.click();
 		}
+		//Assertion
+		@FindBy(xpath = "//button[text()='Sign In']")private WebElement signinPresent;
+		public boolean isDisplayedSignin()
+		{
+			return  signinPresent.isDisplayed();
+		}
 
 }

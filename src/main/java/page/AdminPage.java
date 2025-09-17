@@ -22,23 +22,23 @@ public void clickonNewButton()
 	newUser.click();
 }
 @FindBy(xpath ="//input[@id='username']")private WebElement username;
-public void enterUsernameOnUserNameField()
+public void enterUsernameOnUserNameField(String newusername)
 {
-	username.sendKeys("Omy");
+	username.sendKeys(newusername);
 }
 @FindBy(xpath = "//input[@id='password']")private WebElement password;
-public void enterPasswordOnPasswordField()
+public void enterPasswordOnPasswordField(String newpassword)
 {
-	password.sendKeys("Omy21");
+	password.sendKeys(newpassword);
 }
 @FindBy(xpath = "//select[@id='user_type']")private WebElement userType;
 
 
 
-public void selectUserType()
+public void selectUserType(String newuserType)
 {
 	Select select=new Select(userType);
-	select.selectByVisibleText("Admin");
+	select.selectByVisibleText(newuserType);
 	
 	
 }
@@ -59,10 +59,10 @@ public void enterUserNameforSearch()
 	
 }
 @FindBy(xpath = "//select[@id='ut']")private WebElement searchUserType;
-public void selectUserTypeforSearch()
+public void selectUserTypeforSearch(String searchUsertype)
 {
 	Select select=new Select(searchUserType);
-	select.selectByVisibleText("Staff");
+	select.selectByVisibleText(searchUsertype);
 }
 @FindBy(xpath = "//button[@value='sr']")private WebElement search;
 public void searchNewUser()
@@ -73,5 +73,25 @@ public void searchNewUser()
 public void clickOnRetestButton()
 {
 	retest.click();
+}
+
+//Assertion
+@FindBy(xpath = "//div[@class=\'alert alert-success alert-dismissible\']")private WebElement newUserAlert;
+public String savedAlertDisply()
+{
+	return newUserAlert.getText();
+}
+
+@FindBy(xpath = "//a[@class='page-link']")private WebElement searchdata;
+
+public boolean isDisplayPagelink()
+{
+	return searchdata.isDisplayed();
+}
+
+@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']") private  WebElement tableDisplay;
+public boolean tableDisplayed()
+{
+	return tableDisplay.isDisplayed();
 }
 }
