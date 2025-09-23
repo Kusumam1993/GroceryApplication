@@ -30,6 +30,11 @@ public class HomePage
 		{
 			logout.click();
 		}
+	@FindBy(xpath = "//a[@class='small-box-footer' and @href='https://groceryapp.uniqassosiates.com/admin/list-news']")private WebElement managenews;
+	public void clickOnManageNewsTile()
+	{
+		managenews.click();
+	}
 		//Assertion
 		@FindBy(xpath = "//button[text()='Sign In']")private WebElement signinPresent;
 		public boolean isDisplayedSignin()

@@ -6,11 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constant.Constants;
 import page.AdminPage;
 import page.HomePage;
 import page.LoginPage;
 import utilities.ExcelUtility;
-import utilities.RandomDataUtility;
+import utilities.RandomDataUtility; 
 
 
 public class AdminUserTest extends Base
@@ -42,8 +43,7 @@ public class AdminUserTest extends Base
 	adminuser.selectUserType(userType);
 	adminuser.clickOnSaveButton();
 	String actual=adminuser.savedAlertDisply();
-	String expected="User Created Successfully";
-	Assert.assertEquals(actual, expected,"AdminUser can't add a new user");
+	Assert.assertTrue(actual.contains("User Created Successfully"),Constants.ADDNEWUSER);
 	}
 	@Test
 	public void verifyUserisAbleToSearchAnewlyAddedUser() throws IOException
@@ -61,13 +61,14 @@ public class AdminUserTest extends Base
 		
 		AdminPage adminuser=new AdminPage(driver);		
 		adminuser.clickOnSearchUser();
-		adminuser.enterUserNameforSearch();
+		String  userName=ExcelUtility.getStringData(0, 0,"UserNamePage");
+		adminuser.enterUserNameforSearch(userName);
 		boolean pagenumber=adminuser.isDisplayPagelink();//for Assertion
-		String  userType=ExcelUtility.getStringData(1, 0,"UserTypePage");
+		String  userType=ExcelUtility.getStringData(0, 1,"UserNamePage");
 		
 		adminuser.selectUserTypeforSearch(userType);
 		adminuser.searchNewUser();
-		Assert.assertTrue(pagenumber, "User not able to view search data");
+		Assert.assertTrue(pagenumber,Constants.SEARCH);
 		
 		
 		
@@ -89,7 +90,7 @@ public class AdminUserTest extends Base
 		AdminPage adminuser=new AdminPage(driver);	
 		adminuser.clickOnRetestButton();
 		boolean tablepresent=adminuser.tableDisplayed();
-		Assert.assertTrue(tablepresent, "User not able to Refresh the page");
+		Assert.assertTrue(tablepresent,Constants.RESET);
 		
 		
 	}

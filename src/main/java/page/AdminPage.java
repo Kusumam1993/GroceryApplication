@@ -53,16 +53,17 @@ public void clickOnSearchUser()
 	userSearch.click();
 }
 @FindBy(xpath = "//input[@id='un']")private WebElement searchUserName;
-public void enterUserNameforSearch()
+public void enterUserNameforSearch(String searchName)
 {
-	searchUserName.sendKeys("Hazel");
+	searchUserName.sendKeys(searchName);
 	
 }
 @FindBy(xpath = "//select[@id='ut']")private WebElement searchUserType;
 public void selectUserTypeforSearch(String searchUsertype)
 {
-	Select select=new Select(searchUserType);
-	select.selectByVisibleText(searchUsertype);
+	//Select select=new Select(searchUserType);
+	//select.selectByVisibleText(searchUsertype);
+	searchUserType.sendKeys(searchUsertype);
 }
 @FindBy(xpath = "//button[@value='sr']")private WebElement search;
 public void searchNewUser()
@@ -76,10 +77,11 @@ public void clickOnRetestButton()
 }
 
 //Assertion
-@FindBy(xpath = "//div[@class=\'alert alert-success alert-dismissible\']")private WebElement newUserAlert;
+@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")private WebElement newUserAlert;
 public String savedAlertDisply()
 {
 	return newUserAlert.getText();
+	
 }
 
 @FindBy(xpath = "//a[@class='page-link']")private WebElement searchdata;

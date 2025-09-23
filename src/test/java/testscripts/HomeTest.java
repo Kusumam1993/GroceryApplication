@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constant.Constants;
 import page.HomePage;
 import page.LoginPage;
 import utilities.ExcelUtility;
@@ -26,7 +27,7 @@ public class HomeTest extends Base
 		home.clickOnAdminprofile();
 		home.ClickonLogout();
 		boolean signinpresent=home.isDisplayedSignin();
-		Assert.assertTrue(signinpresent, "User can't logout from the application");
+		Assert.assertTrue(signinpresent,Constants.LOGOUTERROR);
 		
 		
 	}

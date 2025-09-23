@@ -36,7 +36,7 @@ public class LoginPage
 		{
 			return dashboard.isDisplayed();//dashboard displayed or not there-isDisplayed
 		}
-		@FindBy(xpath = "//b[text()=\"7rmart supermarket\"]") private WebElement loginPageTitle;
+		@FindBy(xpath = "//b[text()='7rmart supermarket']") private WebElement loginPageTitle;
 		public String getPageTitle()
 		{
 			return loginPageTitle.getText();
