@@ -17,71 +17,76 @@ public class AdminPage
 	}
 
 @FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")private WebElement newUser;
-public void clickonNewButton()
+public AdminPage clickonNewButton()
 {
 	newUser.click();
+	return this;
 }
 @FindBy(xpath ="//input[@id='username']")private WebElement username;
-public void enterUsernameOnUserNameField(String newusername)
+public AdminPage enterUsernameOnUserNameField(String newusername)
 {
 	username.sendKeys(newusername);
+	return this;
 }
 @FindBy(xpath = "//input[@id='password']")private WebElement password;
-public void enterPasswordOnPasswordField(String newpassword)
+public AdminPage enterPasswordOnPasswordField(String newpassword)
 {
 	password.sendKeys(newpassword);
+	return this;
 }
 @FindBy(xpath = "//select[@id='user_type']")private WebElement userType;
 
-
-
-public void selectUserType(String newuserType)
+public AdminPage selectUserType(String newuserType)
 {
 	Select select=new Select(userType);
 	select.selectByVisibleText(newuserType);
-	
-	
+	return this;	
 }
 @FindBy(xpath = "//button[ @name='Create']") private WebElement saveNewUser;
-public void clickOnSaveButton()
+public AdminPage clickOnSaveButton()
 {
 	saveNewUser.click();
+	return this;
 }
 @FindBy(xpath = "//a[@onclick='click_button(2)']")private WebElement userSearch;
-public void clickOnSearchUser()
+public AdminPage clickOnSearchUser()
 {
 	userSearch.click();
+	return this;
 }
 @FindBy(xpath = "//input[@id='un']")private WebElement searchUserName;
-public void enterUserNameforSearch(String searchName)
+public AdminPage enterUserNameforSearch(String searchName)
 {
 	searchUserName.sendKeys(searchName);
+	return this;
 	
 }
 @FindBy(xpath = "//select[@id='ut']")private WebElement searchUserType;
-public void selectUserTypeforSearch(String searchUsertype)
+public AdminPage selectUserTypeforSearch(String searchUsertype)
 {
 	//Select select=new Select(searchUserType);
 	//select.selectByVisibleText(searchUsertype);
 	searchUserType.sendKeys(searchUsertype);
+	return this;
 }
 @FindBy(xpath = "//button[@value='sr']")private WebElement search;
-public void searchNewUser()
+public AdminPage searchNewUser()
 {
 	search.click();
+	return this;
 }
 @FindBy(xpath = "//i[@class='ace-icon fa fa-sync-alt']")private WebElement retest;
-public void clickOnRetestButton()
+public AdminPage clickOnRetestButton()
 {
 	retest.click();
+	return this;
 }
 
 //Assertion
 @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")private WebElement newUserAlert;
 public String savedAlertDisply()
 {
-	return newUserAlert.getText();
-	
+	return newUserAlert.getText();	
 }
 
 @FindBy(xpath = "//a[@class='page-link']")private WebElement searchdata;
