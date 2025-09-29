@@ -46,28 +46,36 @@ public class Listeners implements ITestListener
 
 	String testMethodName = result.getMethod().getMethodName();
 
-	try {
-
+	try 
+	{
 	driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
 	.get(result.getInstance());
-	} catch (IllegalArgumentException e) {
+	} 
+	catch (IllegalArgumentException e)
+	{
+	e.printStackTrace();
+	} 
+	catch (IllegalAccessException e) 
+	{
 
 	e.printStackTrace();
-	} catch (IllegalAccessException e) {
-
+	} 
+	catch (NoSuchFieldException e) 
+	{
 	e.printStackTrace();
-	} catch (NoSuchFieldException e) {
-
-	e.printStackTrace();
-	} catch (SecurityException e) {
-
+	} 
+	catch (SecurityException e) 
+	{
 	e.printStackTrace();
 	}
 
-	try {
+	try
+	{
 	driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
 	.get(result.getInstance());
-	} catch (Exception e) {
+	} 
+	catch (Exception e)
+	{
 	}
 	}
 
