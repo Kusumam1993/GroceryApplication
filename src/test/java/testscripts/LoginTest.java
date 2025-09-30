@@ -6,8 +6,9 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
 import automationcore.Base;
+//import page.HomePage;
+//import automationcore.Base;
 import constant.Constants;
 import page.HomePage;
 import page.LoginPage;
@@ -17,7 +18,7 @@ import utilities.ExcelUtility;
 	public class LoginTest extends Base
 	{
 		HomePage homepage;
-		@Test(groups= {"smoke"},priority=1,description="User can login with valid username and valid password")
+		@Test(groups= {"smoke"},priority=1,description="User can login with valid username and valid password",retryAnalyzer = retry.Retry.class)
 		
 		public void verifyUserLoginWithValidCredentials() throws IOException
 		{

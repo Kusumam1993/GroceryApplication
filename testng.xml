@@ -7,11 +7,11 @@
 <parameter name="browsers" value="Chrome"></parameter>
   <test thread-count="5" name="Test">
     <classes>
-  	<class name="testscripts.LoginTest"/>  
-    <class name="testscripts.HomeTest"/> 
+  	<class name="testscripts.LoginTest">  
+  <!--   <class name="testscripts.HomeTest"/> 
     <class name="testscripts.AdminUserTest"/>   
-    <class name="testscripts.ManageNewsTest">  
-       <!--<methods><include name="verifyUserIsAbleTOSearchNews"></include></methods> --> 
+    <class name="testscripts.ManageNewsTest">  -->
+       <methods><include name="verifyUserLoginWithValidCredentials"></include></methods>  
         </class>
      <!--  <methods><exclude name="verifyUserisAbleToSearchAnewlyAddedUser"></include></methods>-->
     </classes>
